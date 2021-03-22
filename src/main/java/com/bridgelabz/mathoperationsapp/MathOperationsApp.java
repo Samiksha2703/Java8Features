@@ -10,7 +10,7 @@ interface IMathFunction {
 
 public class MathOperationsApp {
 
-    public static void main (String [] args){
+    public static void main (String [] args) {
         //use of method reference to execute addition
         IMathFunction addition = Integer::sum;
         //subtraction with lambda function
@@ -27,4 +27,5 @@ public class MathOperationsApp {
         IMathFunction.printResult(4, 2, "Division", divide);
 
     }
-}
+    }
+
