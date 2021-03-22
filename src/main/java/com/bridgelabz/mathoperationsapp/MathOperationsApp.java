@@ -3,6 +3,9 @@ package com.bridgelabz.mathoperationsapp;
 @FunctionalInterface
 interface IMathFunction {
     int calculate(int a, int b);
+    static void printResult(int a, int b, String function, IMathFunction fobj){
+        System.out.println("Result of "+function+" is "+fobj.calculate(a, b));
+    }
 }
 
 public class MathOperationsApp {
@@ -18,10 +21,10 @@ public class MathOperationsApp {
         IMathFunction divide = (int x, int y) -> x / y;
 
         //Executing the simple math operations
-        System.out.println("Addition is : " +addition.calculate(6, 3));
-        System.out.println("Subtraction is : " +subtract.calculate(8, 2));
-        System.out.println("Multiplication is : " +multiply.calculate(5, 4));
-        System.out.println("Division is : " +divide.calculate(4, 2));
+        IMathFunction.printResult(6, 3, "Addition", addition);
+        IMathFunction.printResult(8, 2, "Subtraction", subtract);
+        IMathFunction.printResult(5, 4, "Multiplication", multiply);
+        IMathFunction.printResult(4, 2, "Division", divide);
 
     }
 }
