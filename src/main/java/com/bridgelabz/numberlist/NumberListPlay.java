@@ -90,5 +90,8 @@ public class NumberListPlay {
         Integer first  = myNumberList.stream().filter(isEvenFunction).peek(n -> System.out.println("Peek even number : " +n)).findFirst().orElse(null);
         System.out.println("Method 10 : Peak First Even : " +first);
 
+        //Method 12 : Find min even number
+        Integer min = myNumberList.stream().filter(isEvenFunction).min((n1, n2) -> n1 - n2).orElse(null);
+        System.out.println("Method 11 : Minimum Even : " +min);
     }
 }
