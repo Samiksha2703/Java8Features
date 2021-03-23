@@ -81,5 +81,10 @@ public class NumberListPlay {
         //Ability to store values in the new list
         List<Double> streamList = myNumberList.stream().filter(isEvenFunction).map(doubleFunction).collect(Collectors.toList());
         System.out.println("Method 9 : Printing Double List : " +streamList);
+
+        //Method 10 : Find first even
+        List<Integer> filterEven  = myNumberList.stream().filter(isEvenFunction).collect(Collectors.toList());
+        System.out.println("Method 10 : Even numbers from list : " +filterEven);
+
     }
 }
