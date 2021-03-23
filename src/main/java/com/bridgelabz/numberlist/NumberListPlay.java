@@ -78,6 +78,7 @@ public class NumberListPlay {
         });
 
         //Method 9 : Process the stream, Apply operations on the stream and then store the result
+        //Ability to store values in the new list
         List<Double> streamList = myNumberList.stream().filter(isEvenFunction).map(doubleFunction).collect(Collectors.toList());
         System.out.println("Method 9 : Printing Double List : " +streamList);
     }
