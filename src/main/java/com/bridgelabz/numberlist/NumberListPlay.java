@@ -72,9 +72,13 @@ public class NumberListPlay {
             });
         });
         
-        //Create Strean and iterate list to show elements of stream
+        //Method 8 : Create Strean and iterate list to show elements of stream
         myNumberList.stream().forEach( n -> {
             System.out.println("Method 8 : forEach value of: " +n);
         });
+
+        //Method 9 : Process the stream, Apply operations on the stream and then store the result
+        List<Double> streamList = myNumberList.stream().filter(isEvenFunction).map(doubleFunction).collect(Collectors.toList());
+        System.out.println("Method 9 : Printing Double List : " +streamList);
     }
 }
