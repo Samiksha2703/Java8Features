@@ -103,5 +103,9 @@ public class NumberListPlay {
         boolean oneEven = myNumberList.stream().anyMatch(isEvenFunction);
         boolean noneMultOfSix = myNumberList.stream().noneMatch(i -> i > 0 && i % 6 ==0);
         System.out.println("allEven : "+allEven+ "\noneEven : "+oneEven+"\nnoneMultOfSix : "+noneMultOfSix);
+
+        //Method 14 : Sort the number stream in ascending order
+        List<Integer> sortedList = myNumberList.stream().sorted((n1, n2) -> n1.compareTo(n2)).collect(Collectors.toList());
+        System.out.println("Method 14 : SortedList:"+sortedList);
     }
 }
