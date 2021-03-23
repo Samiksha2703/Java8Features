@@ -1,6 +1,7 @@
 package com.bridgelabz.numberlist;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
@@ -82,16 +83,19 @@ public class NumberListPlay {
         List<Double> streamList = myNumberList.stream().filter(isEvenFunction).map(doubleFunction).collect(Collectors.toList());
         System.out.println("Method 9 : Printing Double List : " +streamList);
 
-        //Method 10 : Find first even
+        //Method 10 : Find even number
         List<Integer> filterEven  = myNumberList.stream().filter(isEvenFunction).collect(Collectors.toList());
         System.out.println("Method 10 : Even numbers from list : " +filterEven);
 
         //Method 11 : Find first even
         Integer first  = myNumberList.stream().filter(isEvenFunction).peek(n -> System.out.println("Peek even number : " +n)).findFirst().orElse(null);
-        System.out.println("Method 10 : Peak First Even : " +first);
+        System.out.println("Method 11 : Peak First Even : " +first);
 
-        //Method 12 : Find min even number
+        //Method 12 : Find min and max even number
         Integer min = myNumberList.stream().filter(isEvenFunction).min((n1, n2) -> n1 - n2).orElse(null);
-        System.out.println("Method 11 : Minimum Even : " +min);
+        System.out.println("Method 12 : Minimum Even : " +min);
+
+        Integer max = myNumberList.stream().filter(isEvenFunction).max(Comparator.comparing(Integer::intValue)).orElse(null);
+        System.out.println("Method 12 : Maximum Even : " +max);
     }
 }
