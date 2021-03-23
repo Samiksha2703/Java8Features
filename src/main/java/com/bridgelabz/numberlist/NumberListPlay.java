@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class NumberListPlay {
 
@@ -53,13 +54,27 @@ public class NumberListPlay {
         //Method 6 : Implicit Lambda Function to print double value
         Function<Integer, Double> doubleFunction = Integer::doubleValue;
         myNumberList.forEach(n -> {
-            System.out.println("Method 6 : forEach Lambda impl Value :: " +doubleFunction.apply(n));
+            System.out.println("Method 6 : forEach Lambda impl Value :: " + doubleFunction.apply(n));
         });
 
         //Method 7 : Implicit Lambda Function to check and print even
-        Predicate<Integer> isEvenFunction = n -> n%2 == 0;
+        Predicate<Integer> isEvenFunction = n -> n % 2 == 0;
         myNumberList.forEach(n -> {
-            System.out.println("Method 7 : forEach value of : "+ n + " check for Even : " +isEvenFunction.test(n) );
+            System.out.println("Method 7 : forEach value of : " + n + " check for Even : " + isEvenFunction.test(n));
+        });
+
+        //Before using stream
+        List<Double> doublelist = new ArrayList<>();
+        myNumberList.forEach(n -> {
+            doublelist.add(doubleFunction.apply(n));
+            doublelist.forEach(n1 -> {
+                System.out.println("Method 8 : forEach value of: " +n+" check for Even : "+ isEvenFunction.test(n1.intValue()));
+            });
+        });
+        
+        //Create Strean and iterate list to show elements of stream
+        myNumberList.stream().forEach( n -> {
+            System.out.println("Method 8 : forEach value of: " +n);
         });
     }
 }
