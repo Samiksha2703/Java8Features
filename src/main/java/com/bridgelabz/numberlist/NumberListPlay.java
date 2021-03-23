@@ -86,5 +86,9 @@ public class NumberListPlay {
         List<Integer> filterEven  = myNumberList.stream().filter(isEvenFunction).collect(Collectors.toList());
         System.out.println("Method 10 : Even numbers from list : " +filterEven);
 
+        //Method 11 : Find first even
+        Integer first  = myNumberList.stream().filter(isEvenFunction).peek(n -> System.out.println("Peek even number : " +n)).findFirst().orElse(null);
+        System.out.println("Method 10 : Peak First Even : " +first);
+
     }
 }
