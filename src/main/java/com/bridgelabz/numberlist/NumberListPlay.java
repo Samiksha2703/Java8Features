@@ -59,7 +59,7 @@ public class NumberListPlay {
         });
 
         //Method 7 : Implicit Lambda Function to check and print even
-        Predicate<Integer> isEvenFunction = n -> n % 2 == 0;
+        Predicate<Integer> isEvenFunction = n -> n % 2 == 0 && n > 0;
         myNumberList.forEach(n -> {
             System.out.println("Method 7 : forEach value of : " + n + " check for Even : " + isEvenFunction.test(n));
         });
@@ -72,7 +72,7 @@ public class NumberListPlay {
                 System.out.println("Method 8 : forEach value of: " +n+" check for Even : "+ isEvenFunction.test(n1.intValue()));
             });
         });
-        
+
         //Method 8 : Create Strean and iterate list to show elements of stream
         myNumberList.stream().forEach( n -> {
             System.out.println("Method 8 : forEach value of: " +n);
@@ -92,10 +92,16 @@ public class NumberListPlay {
         System.out.println("Method 11 : Peak First Even : " +first);
 
         //Method 12 : Find min and max even number
-        Integer min = myNumberList.stream().filter(isEvenFunction).min((n1, n2) -> n1 - n2).orElse(null);
+        Integer min = myNumberList.stream().filter(isEvenFunction).min(Comparator.comparing(Integer::intValue)).orElse(null);
         System.out.println("Method 12 : Minimum Even : " +min);
 
         Integer max = myNumberList.stream().filter(isEvenFunction).max(Comparator.comparing(Integer::intValue)).orElse(null);
         System.out.println("Method 12 : Maximum Even : " +max);
+
+        //Method 13 : Find all number or at lest one number is even and none multiple of 6
+        boolean allEven = myNumberList.stream().allMatch(isEvenFunction);
+        boolean oneEven = myNumberList.stream().anyMatch(isEvenFunction);
+        boolean noneMultOfSix = myNumberList.stream().noneMatch(i -> i > 0 && i % 6 ==0);
+        System.out.println("allEven : "+allEven+ "\noneEven : "+oneEven+"\nnoneMultOfSix : "+noneMultOfSix);
     }
 }
